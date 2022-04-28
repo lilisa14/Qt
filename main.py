@@ -3,6 +3,9 @@ from PyQt5.QtWidgets import QApplication, QMainWindow
 import sys
 
 
+def push_button():
+    print("Вы нажали на кнопку!!!)")
+
 def main_app():
     app = QApplication(sys.argv)
     wind = QMainWindow()
@@ -20,6 +23,12 @@ def main_app():
     button.setGeometry(300, 100, 100, 50)
     button.setText("Жамк")
     button.adjustSize()
+    button.clicked.connect(push_button)
+
+    k=0
+
+    if push_button():
+        k += 1
 
     wind.show()
     sys.exit(app.exec_())
